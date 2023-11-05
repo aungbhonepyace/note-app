@@ -2,7 +2,7 @@ import{StyleSheet} from 'react-native';
 export const home_styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
-    margin: 10,
+    padding: 10,
   },
   mainLogoContainer: {
     fontWeight: 600,
@@ -20,6 +20,7 @@ export const home_styles = StyleSheet.create({
   },
   searchContainer: {
     flexDirection: 'row',
+    margin: 10,
     borderWidth: 2,
     borderRadius: 10,
     borderColor: "#ECECEC",
@@ -33,5 +34,14 @@ export const home_styles = StyleSheet.create({
   },
   searchBar: {
     height: 10,
+  },
+  button: {
+    position: 'absolute',
+    top: 770,
+    left: 330
+  },
+  buttonImg: {
+    width: 60,
+    height: 60
   }
 });

@@ -1,11 +1,13 @@
-import { View, Text } from 'react-native'
+import { StatusBar } from 'expo-status-bar';
+import { useState } from 'react';
+import { StyleSheet, Text, View, SafeAreaView, FlatList, TextInput, Image, Button } from 'react-native';
 import React from 'react'
 
 const Category = () => {
   return (
-    <View>
+    <SafeAreaView>
       <Text>Cate</Text>
-    </View>
+    </SafeAreaView>
   )
 }
 

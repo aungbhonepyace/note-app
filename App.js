@@ -6,9 +6,7 @@ import AppNavigator from './navigation/navigation';
 export default function App() {
 
   return (
-    <SafeAreaView style={styles.container}>
       <AppNavigator/>
-    </SafeAreaView>
   );
 }
 
