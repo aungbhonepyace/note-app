@@ -5,10 +5,8 @@ import React from 'react'
 
 const Home = ({navigation}) => {
 
-  const [text, setText] = useState('');
-  const [cate, setCate] = useState('');
-  const handleNavigate = () => {
-    navigation.navigate('Category')
+  const handleNoteNavigate = () => {
+    navigation.navigate('Note')
   }
 
   return (
@@ -16,19 +14,21 @@ const Home = ({navigation}) => {
 
       <View style={home_styles.mainLogoContainer}>
         <Text style={home_styles.firstLogo}>NOTE</Text>
-        <Text style={home_styles.secondLogo}>APP .</Text>
+        <Text style={home_styles.secondLogo}>APP</Text>
+        <Text style={home_styles.firstLogo}>.</Text>
       </View>
 
       <View style={home_styles.searchContainer}>
         <Image style={home_styles.searchLogo} source={require('../../assets/img_search_logo.png')}></Image>
-        <TextInput style={home_styles.searchBar} value={text} placeholder='Search for notes'></TextInput>
+        <TextInput style={home_styles.searchBar} placeholder='Search for notes'></TextInput>
       </View>
 
       <View>
-        
+        <FlatList/>
+
       </View>
 
-      <TouchableOpacity style={home_styles.button} onPress={handleNavigate}>
+      <TouchableOpacity style={home_styles.button} onPress={handleNoteNavigate}>
         <View>
           <Image style={home_styles.buttonImg} source={require('../../assets/img_add.png')} />
         </View>

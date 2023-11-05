@@ -30,10 +30,10 @@ export const home_styles = StyleSheet.create({
   searchLogo: {
     width: 30,
     height: 30,
-    marginRight: 12,
   },
   searchBar: {
-    height: 10,
+    width: "100%",
+    marginLeft: 12,
   },
   button: {
     position: 'absolute',
