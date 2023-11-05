@@ -20,7 +20,9 @@ export default function App() {
         <TextInput style={styles.searchBar} value={text} placeholder='Search for notes'></TextInput>
       </View>
       
-      
+      <View style={styles.buttonContainer}>
+        <Button></Button>
+      </View>
 
       <StatusBar style="auto" />
     </SafeAreaView>
