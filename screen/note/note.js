@@ -13,9 +13,11 @@ const Note = ({navigation}) => {
     <SafeAreaView style={note_styles.container}>
 
       <View styles={note_styles.headerContainer}>
-        <TouchableOpacity styles={note_styles.backArrow} onPress={handleHomeNavigate}>
-          <Image style={note_styles.backArrowImage} source={require('../../assets/img_backArrow.png')} />
-        </TouchableOpacity>
+        <View>
+          <TouchableOpacity styles={note_styles.backArrow} onPress={handleHomeNavigate}>
+            <Image style={note_styles.backArrowImage} source={require('../../assets/img_backArrow.png')} />
+          </TouchableOpacity>
+        </View>
         <View style={home_styles.mainLogoContainer}>
           <Text style={home_styles.firstLogo}>NOTE</Text>
           <Text style={home_styles.secondLogo}>APP</Text>
