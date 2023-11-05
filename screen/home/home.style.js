@@ -1,4 +1,4 @@
-import{  StyleSheet } from 'react-native';
+import{StyleSheet} from 'react-native';
 export const home_styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
