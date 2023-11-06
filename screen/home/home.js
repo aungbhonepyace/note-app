@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { Text, View, SafeAreaView, FlatList, TextInput, Image, TouchableOpacity } from 'react-native';
 import React from 'react'
 
+import getRandomColorFromList from '../../components/color.js';
+
 const Home = ({navigation}) => {
 
   const handleNoteNavigate = () => {
@@ -17,6 +19,13 @@ const Home = ({navigation}) => {
     { catName: 'Shopping lists', id: '5' }
   ]
 
+  const note = [
+    { noteTitle: 'Team Meeting', description: 'Hello fdfasdf dfdsfdf fdfdsfdsfdfdf ...', id: '1' },
+    { noteTitle: 'AAA', description: 'Hello fdfasdf dfdsfdf fdfdsfdsfdfdf ...', id: '2' },
+    { noteTitle: 'Shopping list', description: 'Hello fdfasdf dfdsfdf fdfdsfdsfdfdf ...', id: '3'},
+    { noteTitle: 'Assignment 1', description: 'Hello fdfasdf dfdsfdf fdfdsfdsfdfdf ...', id: '4',},
+    { noteTitle: 'Notes', description: 'Hello fdfasdf dfdsfdf fdfdsfdsfdfdf ...', id: '5' },
+  ]
 
   return (
     <SafeAreaView style={home_styles.container}>
@@ -41,7 +50,20 @@ const Home = ({navigation}) => {
           }
           keyExtractor={(item)=> item.id}
         />
-        
+
+        <FlatList
+          data={note}
+          renderItem={({ item }) =>
+            <View style={ [note_styles.noteContainer , {backgroundColor: getRandomColorFromList()}] }>
+              <Text style={{ fontSize: 20, fontWeight: 'bold', }}>
+                {item.noteTitle}
+              </Text>
+              <Text>
+                {item.description}
+              </Text>
+            </View>
+          }
+        />
       </View>
 
       <TouchableOpacity style={home_styles.button} onPress={handleNoteNavigate}>
@@ -57,5 +79,6 @@ const Home = ({navigation}) => {
 
 import { home_styles } from './home.style';
 import { cate_styles } from '../cate/cate.style';
+import { note_styles } from '../note/note.style.js'
 
 export default Home

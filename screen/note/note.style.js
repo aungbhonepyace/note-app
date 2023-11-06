@@ -11,6 +11,9 @@ export const note_styles = StyleSheet.create({
     width: 30,
     height: 30,
     marginLeft: 10
+  },
+  noteContainer: {
+    flex: 1,
   }
 
 });
