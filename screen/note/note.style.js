@@ -5,12 +5,16 @@ export const note_styles = StyleSheet.create({
     padding: 10,
   },
   headerContainer: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    alignItems: 'center'
   },
   backArrowImage: {
     width: 30,
     height: 30,
-    marginLeft: 10
+    marginLeft: 10,
+    position: 'absolute',
+    top: 18,
+    left: 18,
   },
   noteFlatlist: {
     justifyContent: 'center',

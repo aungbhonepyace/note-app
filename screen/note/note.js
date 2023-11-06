@@ -14,18 +14,16 @@ const Note = ({navigation}) => {
 
       <View styles={note_styles.headerContainer}>
         
-          <View styles={note_styles.backArrow} onPress={handleHomeNavigate}>
-            <Image style={note_styles.backArrowImage} source={require('../../assets/img_backArrow.png')} />
-          </View>
+        <TouchableOpacity styles={note_styles.backArrow} onPress={handleHomeNavigate}>
+          <Image style={note_styles.backArrowImage} source={require('../../assets/img_backArrow.png')} />
+        </TouchableOpacity>
         <View style={home_styles.mainLogoContainer}>
           <Text style={home_styles.firstLogo}>NOTE</Text>
           <Text style={home_styles.secondLogo}>APP</Text>
           <Text style={home_styles.firstLogo}>.</Text>
         </View>
+        
       </View>
-      
-
-
     </SafeAreaView>
   )
 }
