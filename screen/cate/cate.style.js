@@ -4,6 +4,8 @@ export const cate_styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 10,
     padding: 10,
-    margin: 20
+    marginHorizontal: 12,
+    marginTop: 18,
+    marginBottom: 39
   }
 });

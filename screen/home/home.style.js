@@ -43,5 +43,5 @@ export const home_styles = StyleSheet.create({
   buttonImg: {
     width: 60,
     height: 60
-  }
+  },
 });

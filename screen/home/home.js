@@ -27,6 +27,8 @@ const Home = ({navigation}) => {
     { noteTitle: 'Notes', description: 'Hello fdfasdf dfdsfdf fdfdsfdsfdfdf ...', id: '5' },
   ]
 
+  const numofColumns = 2;
+
   return (
     <SafeAreaView style={home_styles.container}>
 
@@ -48,22 +50,26 @@ const Home = ({navigation}) => {
           renderItem={({ item }) =>
             <Text style={cate_styles.categoryList}>{item.catName}</Text>
           }
-          keyExtractor={(item)=> item.id}
+          keyExtractor={(item) => item.id}
+          showsHorizontalScrollIndicator={false}
         />
-
-        <FlatList
+      
+        <View  style={note_styles.noteFlatlist}>
+          <FlatList 
+          numColumns={numofColumns}
           data={note}
           renderItem={({ item }) =>
             <View style={ [note_styles.noteContainer , {backgroundColor: getRandomColorFromList()}] }>
-              <Text style={{ fontSize: 20, fontWeight: 'bold', }}>
+              <Text style={note_styles.noteTitle}>
                 {item.noteTitle}
               </Text>
-              <Text>
+              <Text style={note_styles.noteDesc}>
                 {item.description}
               </Text>
             </View>
           }
-        />
+          />
+        </View>
       </View>
 
       <TouchableOpacity style={home_styles.button} onPress={handleNoteNavigate}>
