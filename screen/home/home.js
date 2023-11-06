@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Text, View, SafeAreaView, FlatList, TextInput, Image, TouchableOpacity } from 'react-native';
 import React from 'react'
 
-import getRandomColorFromList from '../../components/color.js';
+import getRandomColorFromList from '../../utilities/color.js';
 
 const Home = ({navigation}) => {
 
@@ -31,7 +31,7 @@ const Home = ({navigation}) => {
 
   return (
     <SafeAreaView style={home_styles.container}>
-
+      
       <View style={home_styles.mainLogoContainer}>
         <Text style={home_styles.firstLogo}>NOTE</Text>
         <Text style={home_styles.secondLogo}>APP</Text>
