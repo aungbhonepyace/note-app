@@ -27,7 +27,7 @@ const Home = ({navigation}) => {
     { noteTitle: 'Notes', description: 'Hello fdfasdf dfdsfdf fdfdsfdsfdfdf ...', id: '5' },
   ]
 
-  const numofColumns = 2;
+  const numofColumns = 2; // for note flatlist
 
   return (
     <SafeAreaView style={home_styles.container}>
