@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, View, SafeAreaView, FlatList, TextInput, Image, TouchableOpacity } from 'react-native';
+import { Text, View, SafeAreaView, FlatList, TextInput, Image, TouchableOpacity } from 'react-native';
 import React from 'react'
 
 const Home = ({navigation}) => {
@@ -8,6 +8,15 @@ const Home = ({navigation}) => {
   const handleNoteNavigate = () => {
     navigation.navigate('Note')
   }
+
+  const cate = [
+    { catName: 'All', id: '1' },
+    { catName: 'Important', id: '2' },
+    { catName: 'Lecture notes', id: '3' },
+    { catName: 'To-do-lists', id: '4' },
+    { catName: 'Shopping lists', id: '5' }
+  ]
+
 
   return (
     <SafeAreaView style={home_styles.container}>
@@ -24,8 +33,15 @@ const Home = ({navigation}) => {
       </View>
 
       <View>
-        <FlatList/>
-
+        <FlatList
+          horizontal={true}
+          data={cate}
+          renderItem={({ item }) =>
+            <Text style={cate_styles.categoryList}>{item.catName}</Text>
+          }
+          keyExtractor={(item)=> item.id}
+        />
+        
       </View>
 
       <TouchableOpacity style={home_styles.button} onPress={handleNoteNavigate}>
@@ -40,5 +56,6 @@ const Home = ({navigation}) => {
 }
 
 import { home_styles } from './home.style';
+import { cate_styles } from '../cate/cate.style';
 
 export default Home
