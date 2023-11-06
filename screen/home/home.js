@@ -4,6 +4,9 @@ import { Text, View, SafeAreaView, FlatList, TextInput, Image, TouchableOpacity 
 import React from 'react'
 
 import getRandomColorFromList from '../../utilities/color.js';
+import { home_styles } from './home.style.js';
+import { cate_styles } from '../cate/cate.style.js';
+import { note_styles } from '../note/note.style.js';
 
 const Home = ({navigation}) => {
 
@@ -82,9 +85,5 @@ const Home = ({navigation}) => {
     </SafeAreaView>
   )
 }
-
-import { home_styles } from './home.style';
-import { cate_styles } from '../cate/cate.style';
-import { note_styles } from '../note/note.style.js'
 
 export default Home
