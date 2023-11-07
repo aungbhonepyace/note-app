@@ -80,7 +80,7 @@ const Home = ({navigation}) => {
           showsHorizontalScrollIndicator={false}
         />
       
-        {/*<View  style={note_styles.noteFlatlist}>
+        <View  style={note_styles.noteFlatlist}>
           <FlatList 
           numColumns={numofColumns}
           data={note}
@@ -95,7 +95,7 @@ const Home = ({navigation}) => {
             </View>
           }
           />
-        </View>*/}
+        </View>
 
 
       </View>
