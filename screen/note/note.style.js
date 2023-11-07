@@ -38,6 +38,27 @@ export const note_styles = StyleSheet.create({
   noteDesc: {
     fontSize: 12,
     fontWeight: 400,
+  },
+
+  title: {
+    fontSize: 12,
+    marginBottom: 20
+  },
+  titleInputfield: {
+    backgroundColor: 'rgba(232, 232, 232, 1)',
+    height: 50,
+    borderWidth: 1,
+    borderColor: 'rgba(246, 246, 246, 1)',
+    borderRadius: 10,
+    padding: 16
+  },
+  textArea: {
+    backgroundColor: 'rgba(232, 232, 232, 1)',
+    borderWidth: 1,
+    borderColor: 'rgba(246, 246, 246, 1)',
+    height: 391,
+    textAlignVertical: 'top',
+    padding: 16
   }
 
 });

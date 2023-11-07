@@ -4,13 +4,16 @@ import { StyleSheet, Text, View, SafeAreaView, FlatList, TextInput, Image, Butto
 import React from 'react'
 import { PaperProvider, RadioButton } from 'react-native-paper';
 
-import Header from '../../components/header.js'
+import Header from '../../components/header.js';
+import getRandomColorFromList from '../../utilities/color.js';
+import { note_styles } from './note.style';
 
 const Note = () => {
-  const [checked, setChecked] = useState('');
+  const [checked, setchecked] = useState('');
+  const radioOptions = ['Important','Lecture Notes', 'To-do-lists', 'Shopping lists'];
 
   const handleRadioPress = (value) => {
-    setChecked(value);
+    setchecked(value);
   };
 
 
@@ -18,21 +21,36 @@ const Note = () => {
     <PaperProvider>
       <SafeAreaView>
         <Header />
-        <View>
+
+        <View style={{marginTop:27, marginHorizontal: 25}}>
           <Text style={note_styles.title}>Title</Text>
           <TextInput style={note_styles.titleInputfield} placeholder='Enter Title' />
         </View>
 
-        <View>
-          <Text>Category</Text>
-          <RadioButton.Group onValueChange={handleRadioPress} value={checked}>
-            <RadioButton.Item status={ checked === 'Lecture Notes' ? 'checked' : 'unchecked' } label="Important" value="Lecture Notes" />
-            <RadioButton.Item status={ checked === 'To-do-lists' ? 'checked' : 'unchecked' } label="To-do-lists" value="To-do-lists" />
-            <RadioButton.Item status={ checked === 'Shopping lists' ? 'checked' : 'unchecked' }label="Shopping lists" value="Shopping lists" />
-          </RadioButton.Group>
-          <Text>Selected option: {checked}</Text>
+        <View style={{marginTop:27, marginHorizontal: 25}}>
+          <Text style={note_styles.title}>Category</Text>
+          <FlatList
+            data={radioOptions}
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            keyExtractor={(item) => item}
+            renderItem={({ item }) => (
+              <RadioButton.Item
+                label={item}
+                value={item}
+                status={checked === item ? 'checked' : 'unchecked'}
+                onPress={() => handleRadioPress(item)}
+                color='rgba(93, 176, 117, 1)'
+              />
+            )}
+          />
+        </View>
 
-          
+        <View style={{marginTop:27, marginHorizontal: 25}}>
+          <Text style={note_styles.title}>
+            Detail
+          </Text>
+          <TextInput style={note_styles.textArea} multiline={true} numberOfLines={10}/>
         </View>
       </SafeAreaView>
     </PaperProvider>
@@ -41,6 +59,5 @@ const Note = () => {
   )
 }
 
-import { note_styles } from './note.style'
 //import { home_styles } from '../home/home.style';
 export default Note
