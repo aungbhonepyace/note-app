@@ -2,11 +2,13 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { Text, View, SafeAreaView, FlatList, TextInput, Image, TouchableOpacity } from 'react-native';
 import React from 'react'
+import { FAB } from 'react-native-paper';
 
 import getRandomColorFromList from '../../utilities/color.js';
 import { home_styles } from './home.style.js';
 import { cate_styles } from '../cate/cate.style.js';
 import { note_styles } from '../note/note.style.js';
+
 
 const Home = ({navigation}) => {
 
@@ -75,11 +77,7 @@ const Home = ({navigation}) => {
         </View>
       </View>
 
-      <TouchableOpacity style={home_styles.button} onPress={handleNoteNavigate}>
-        <View>
-          <Image style={home_styles.buttonImg} source={require('../../assets/img_add.png')} />
-        </View>
-      </TouchableOpacity>
+      <FAB color='black' icon='plus' color='#fff' style={[{backgroundColor: 'black', borderRadius: 100},home_styles.button]} onPress={handleNoteNavigate}/>
 
     <StatusBar style="auto" />
     </SafeAreaView>

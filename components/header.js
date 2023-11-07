@@ -1,6 +1,7 @@
 import { View, Text, TouchableOpacity, Image, SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import React from 'react'
+import React from 'react';
+import { IconButton } from 'react-native-paper'
 
 import {header_styles} from './header.style.js'
 
@@ -14,9 +15,14 @@ const Header = () => {
       <View styles={header_styles.headerContainer}>
         
         <View styles={header_styles.backArrowContainer}>
-          <TouchableOpacity styles={header_styles.backArrow} onPress={handleHomeNavigate}>
-            <Image style={header_styles.backArrowImage} source={require('../assets/img_backArrow.png')} />
-          </TouchableOpacity>
+
+          <IconButton
+            icon="chevron-left"
+            size={60}
+            style={header_styles.backArrowImage}
+            onPress={handleHomeNavigate}
+          />  
+
         </View>
       
         <View style={header_styles.mainLogoContainer}>

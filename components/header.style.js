@@ -22,13 +22,12 @@ export const header_styles = StyleSheet.create({
 
   },
   backArrowImage: {
-    width: 30,
-    height: 30,
     marginLeft: 10,
     position: 'absolute',
-    top: 18,
+    marginVertical: 0,
+    top: 0,
     left: 18,
-    zIndex: 5,
+    zIndex: 1
   },
 
 });
