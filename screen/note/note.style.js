@@ -59,6 +59,18 @@ export const note_styles = StyleSheet.create({
     height: 391,
     textAlignVertical: 'top',
     padding: 16
+  },
+  buttonContainer: {
+    alignItems: 'center',
+    marginVertical: 30,
+    borderRadius: 25
+  },
+  button: {
+    color: '#fff',
+    backgroundColor: 'rgba(93, 176, 117, 1)',
+    width: 123,
+    height: 52,
+    fontWeight: 600
   }
 
 });

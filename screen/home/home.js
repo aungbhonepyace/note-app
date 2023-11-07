@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Text, View, SafeAreaView, FlatList, TextInput, Image, TouchableOpacity } from 'react-native';
 import React from 'react'
 import { FAB } from 'react-native-paper';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import getRandomColorFromList from '../../utilities/color.js';
 import { home_styles } from './home.style.js';
