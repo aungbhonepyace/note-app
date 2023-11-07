@@ -26,9 +26,9 @@ const Note = () => {
         <View>
           <Text>Category</Text>
           <RadioButton.Group onValueChange={handleRadioPress} value={checked}>
-            <RadioButton.Item status={ checked === 'first' ? 'checked' : 'unchecked' } label="First" value="first" />
-            <RadioButton.Item status={ checked === 'first' ? 'checked' : 'unchecked' } label="Second" value="second" />
-            <RadioButton.Item status={ checked === 'first' ? 'checked' : 'unchecked' }label="Third" value="third" />
+            <RadioButton.Item status={ checked === 'Lecture Notes' ? 'checked' : 'unchecked' } label="Important" value="Lecture Notes" />
+            <RadioButton.Item status={ checked === 'To-do-lists' ? 'checked' : 'unchecked' } label="To-do-lists" value="To-do-lists" />
+            <RadioButton.Item status={ checked === 'Shopping lists' ? 'checked' : 'unchecked' }label="Shopping lists" value="Shopping lists" />
           </RadioButton.Group>
           <Text>Selected option: {checked}</Text>
 
