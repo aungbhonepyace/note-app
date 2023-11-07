@@ -42,13 +42,11 @@ const Note = ({navigation}) => {
     // Save the entire data array to AsyncStorage
     try {
       await AsyncStorage.setItem('submittedData', JSON.stringify(submittedData));
-      navigation.navigate('Note');
+      navigation.navigate('Home');
     } catch (error) {
       console.error('Error saving data to AsyncStorage:', error);
     }
   };
-
-
 
   return (
     <PaperProvider>

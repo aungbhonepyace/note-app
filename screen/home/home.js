@@ -24,14 +24,34 @@ const Home = ({navigation}) => {
     { catName: 'To-do-lists', id: '4' },
     { catName: 'Shopping lists', id: '5' }
   ]
-
-  const note = [
-    { noteTitle: 'Team Meeting', description: 'Hello fdfasdf dfdsfdf fdfdsfdsfdfdf ...', id: '1' },
-    { noteTitle: 'AAA', description: 'Hello fdfasdf dfdsfdf fdfdsfdsfdfdf ...', id: '2' },
-    { noteTitle: 'Shopping list', description: 'Hello fdfasdf dfdsfdf fdfdsfdsfdfdf ...', id: '3'},
-    { noteTitle: 'Assignment 1', description: 'Hello fdfasdf dfdsfdf fdfdsfdsfdfdf ...', id: '4',},
-    { noteTitle: 'Notes', description: 'Hello fdfasdf dfdsfdf fdfdsfdsfdfdf ...', id: '5' },
-  ]
+//
+//  const note = [
+//    { noteTitle: 'Team Meeting', description: 'Hello fdfasdf dfdsfdf fdfdsfdsfdfdf ...', id: '1' },
+//    { noteTitle: 'AAA', description: 'Hello fdfasdf dfdsfdf fdfdsfdsfdfdf ...', id: '2' },
+//    { noteTitle: 'Shopping list', description: 'Hello fdfasdf dfdsfdf fdfdsfdsfdfdf ...', id: '3'},
+//    { noteTitle: 'Assignment 1', description: 'Hello fdfasdf dfdsfdf fdfdsfdsfdfdf ...', id: '4',},
+//    { noteTitle: 'Notes', description: 'Hello fdfasdf dfdsfdf fdfdsfdsfdfdf ...', id: '5' },
+  //  ]
+  
+  const DataDisplay = () => {
+    const [data, setData] = useState([]);
+  
+    useEffect(() => {
+      const loadData = async () => {
+        try {
+          const storedData = await AsyncStorage.getItem('submittedData');
+          if (storedData !== null) {
+            const parsedData = JSON.parse(storedData);
+            setData(parsedData);
+          }
+        } catch (error) {
+          console.error('Error loading data from AsyncStorage:', error);
+        }
+      };
+  
+      loadData();
+    }, []);
+  }
 
   const numofColumns = 2; // for note flatlist
 
@@ -60,7 +80,7 @@ const Home = ({navigation}) => {
           showsHorizontalScrollIndicator={false}
         />
       
-        <View  style={note_styles.noteFlatlist}>
+        {/*<View  style={note_styles.noteFlatlist}>
           <FlatList 
           numColumns={numofColumns}
           data={note}
@@ -75,7 +95,9 @@ const Home = ({navigation}) => {
             </View>
           }
           />
-        </View>
+        </View>*/}
+
+
       </View>
 
       <FAB color='black' icon='plus' color='#fff' style={[{backgroundColor: 'black', borderRadius: 100},home_styles.button]} onPress={handleNoteNavigate}/>
