@@ -31,7 +31,7 @@ const Home = ({navigation}) => {
 //    { noteTitle: 'Shopping list', description: 'Hello fdfasdf dfdsfdf fdfdsfdsfdfdf ...', id: '3'},
 //    { noteTitle: 'Assignment 1', description: 'Hello fdfasdf dfdsfdf fdfdsfdsfdfdf ...', id: '4',},
 //    { noteTitle: 'Notes', description: 'Hello fdfasdf dfdsfdf fdfdsfdsfdfdf ...', id: '5' },
-  //  ]
+//  ]
   
   const DataDisplay = () => {
     const [data, setData] = useState([]);
@@ -74,13 +74,15 @@ const Home = ({navigation}) => {
           horizontal={true}
           data={cate}
           renderItem={({ item }) =>
-            <Text style={cate_styles.categoryList}>{item.catName}</Text>
+            <TouchableOpacity>
+              <Text style={cate_styles.categoryList}>{item.catName}</Text>
+            </TouchableOpacity>
           }
           keyExtractor={(item) => item.id}
           showsHorizontalScrollIndicator={false}
         />
       
-        <View  style={note_styles.noteFlatlist}>
+        {/*<View  style={note_styles.noteFlatlist}>
           <FlatList 
           numColumns={numofColumns}
           data={note}
@@ -95,9 +97,24 @@ const Home = ({navigation}) => {
             </View>
           }
           />
-        </View>
+        </View>*/}
 
-
+        <View  style={note_styles.noteFlatlist}>
+          <FlatList 
+          numColumns={numofColumns}
+          data={DataDisplay}
+          renderItem={({ item }) =>
+            (<View style={ [note_styles.noteContainer , {backgroundColor: getRandomColorFromList()}] }>
+              <Text style={note_styles.noteTitle}>
+                {item.title}
+              </Text>
+              <Text style={note_styles.noteDesc}>
+                {item.detail}
+              </Text>
+            </View>)
+          }
+          />
+        </View> 
       </View>
 
       <FAB color='black' icon='plus' color='#fff' style={[{backgroundColor: 'black', borderRadius: 100},home_styles.button]} onPress={handleNoteNavigate}/>
