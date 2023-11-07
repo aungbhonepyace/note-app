@@ -57,6 +57,7 @@ export const note_styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'rgba(246, 246, 246, 1)',
     height: 391,
+    borderRadius: 10,
     textAlignVertical: 'top',
     padding: 16
   },
@@ -71,6 +72,11 @@ export const note_styles = StyleSheet.create({
     width: 123,
     height: 52,
     fontWeight: 600
-  }
+  },
+  error: { 
+    color: 'red', 
+    fontSize: 12, 
+    marginBottom: 10, 
+},
 
 });

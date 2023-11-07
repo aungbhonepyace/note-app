@@ -9,24 +9,26 @@ import Header from '../../components/header.js';
 import getRandomColorFromList from '../../utilities/color.js';
 import { note_styles } from './note.style';
 
-const Note = () => {
-  const [checked, setchecked] = useState('');
+const Note = ({navigation}) => {
+  const [radioValue, setSelectedValue] = useState('');
   const [title, setTitle] = useState('');
   const [detail, setDetail] = useState('');
+  const [submittedData, setSubmittedData] = useState([]);
 
   const radioOptions = ['Important','Lecture Notes', 'To-do-lists', 'Shopping lists'];
 
   const handleRadioPress = (value) => {
-    setchecked(value);
+    setSelectedValue(value);
   };
 
   const handleSubmit = async () => {
-    // Create a new data entry with the submitted values, including a unique ID
+    
+    const newId = submittedData.length + 1;
+
     const newData = {
-      id: uuid(), // Generate a unique ID using UUID
-      selectedValue,
-      title,
-      detail,
+      radioValue: '',
+      title: '',
+      detail: '',
     };
 
     // Update the submitted data state with the new entry
@@ -40,6 +42,7 @@ const Note = () => {
     // Save the entire data array to AsyncStorage
     try {
       await AsyncStorage.setItem('submittedData', JSON.stringify(submittedData));
+      navigation.navigate('Note');
     } catch (error) {
       console.error('Error saving data to AsyncStorage:', error);
     }
@@ -68,7 +71,7 @@ const Note = () => {
               <RadioButton.Item
                 label={item}
                 value={item}
-                status={checked === item ? 'checked' : 'unchecked'}
+                status={radioValue === item ? 'checked' : 'unchecked'}
                 onPress={() => handleRadioPress(item)}
                 color='rgba(93, 176, 117, 1)'
               />
