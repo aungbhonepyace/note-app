@@ -1,7 +1,7 @@
 import{StyleSheet} from 'react-native';
 export const header_styles = StyleSheet.create({
   mainLogoContainer: {
-    fontWeight: 600,
+    // fontWeight: "600",
     flexDirection: 'row',
     padding: 18,
     justifyContent: "center",

@@ -9,40 +9,36 @@ import Header from '../../components/header.js';
 import getRandomColorFromList from '../../utilities/color.js';
 import { note_styles } from './note.style';
 
-const Note = ({navigation}) => {
+const Note = ({ navigation }) => {
   const [radioValue, setSelectedValue] = useState('');
   const [title, setTitle] = useState('');
   const [detail, setDetail] = useState('');
   const [submittedData, setSubmittedData] = useState([]);
 
-  const radioOptions = ['Important','Lecture Notes', 'To-do-lists', 'Shopping lists'];
+  const radioOptions = ['Important', 'Lecture Notes', 'To-do-lists', 'Shopping lists'];
 
   const handleRadioPress = (value) => {
     setSelectedValue(value);
   };
 
+  useEffect(() => {
+    loadData();
+  }, [])
+
+  const loadData = async () => {
+    const storedData = await AsyncStorage.getItem('submittedData').then((res) => JSON.parse(res))
+    setSubmittedData(storedData ?? [])
+  };
+
   const handleSubmit = async () => {
-    
-    const newId = submittedData.length + 1;
-
-    const newData = {
-      radioValue: '',
-      title: '',
-      detail: '',
-    };
-
-    setSubmittedData((prevData) => [...prevData, newData]);
-
-    setSelectedValue('');
-    setTitle('');
-    setDetail('');
-
     try {
-      await AsyncStorage.setItem('submittedData', JSON.stringify(submittedData));
+      const newId = submittedData.length + 1;
+      const totalNoteList = [...submittedData, { id: newId, radioValue, title, detail, }]
+      setSubmittedData(totalNoteList);
+      console.log("Total Note lIst ::", totalNoteList);
+      await AsyncStorage.setItem('submittedData', JSON.stringify(totalNoteList));
       navigation.navigate('Home');
-    } catch (error) {
-      console.error('Error saving data to AsyncStorage:', error);
-    }
+    } catch (e) { console.log(e) }
   };
 
   return (
@@ -50,12 +46,12 @@ const Note = ({navigation}) => {
       <SafeAreaView>
         <Header />
 
-        <View style={{marginTop:27, marginHorizontal: 25}}>
+        <View style={{ marginTop: 27, marginHorizontal: 25 }}>
           <Text style={note_styles.title}>Title</Text>
           <TextInput style={note_styles.titleInputfield} placeholder='Enter Title' onChangeText={setTitle} />
         </View>
 
-        <View style={{marginTop:27, marginHorizontal: 25}}>
+        <View style={{ marginTop: 27, marginHorizontal: 25 }}>
           <Text style={note_styles.title}>Category</Text>
           <FlatList
             data={radioOptions}
@@ -74,11 +70,11 @@ const Note = ({navigation}) => {
           />
         </View>
 
-        <View style={{marginTop:27, marginHorizontal: 25}}>
+        <View style={{ marginTop: 27, marginHorizontal: 25 }}>
           <Text style={note_styles.title}>
             Detail
           </Text>
-          <TextInput style={note_styles.textArea} multiline={true} numberOfLines={10} onChangeText={setDetail}/>
+          <TextInput style={note_styles.textArea} multiline={true} numberOfLines={10} onChangeText={setDetail} />
         </View>
 
         <View style={note_styles.buttonContainer}>
@@ -89,7 +85,7 @@ const Note = ({navigation}) => {
       </SafeAreaView>
     </PaperProvider>
 
-    
+
   )
 }
 

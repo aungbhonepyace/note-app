@@ -5,7 +5,7 @@ export const home_styles = StyleSheet.create({
     padding: 10,
   },
   mainLogoContainer: {
-    fontWeight: 600,
+    // fontWeight: 600,
     flexDirection: 'row',
     padding: 18,
     justifyContent: "center",

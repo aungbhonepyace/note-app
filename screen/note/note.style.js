@@ -37,7 +37,7 @@ export const note_styles = StyleSheet.create({
   },
   noteDesc: {
     fontSize: 12,
-    fontWeight: 400,
+    // fontWeight: 400,
   },
 
   title: {
@@ -71,7 +71,7 @@ export const note_styles = StyleSheet.create({
     backgroundColor: 'rgba(93, 176, 117, 1)',
     width: 123,
     height: 52,
-    fontWeight: 600
+    // fontWeight: 600
   },
   error: { 
     color: 'red', 
