@@ -39,11 +39,11 @@ const Home = ({ navigation }) => {
     useEffect(() => {
       const loadData = async () => {
         try {
-          const storedData = await AsyncStorage.getItem('submittedData');
+          const storedData = await AsyncStorage.getItem('submittedData').then(res => JSON.parse(res))
           //if (storedData !== null) {
           //  const parsedData = JSON.parse(storedData);
           //  setData(parsedData);
-          return storedData != null ? JSON.parse(storedData) : null;
+          //return storedData != null ? JSON.parse(storedData) : null;
         }
         catch (error) {
           console.error('Error loading data from AsyncStorage:', error);
