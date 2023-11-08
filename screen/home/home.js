@@ -11,7 +11,7 @@ import { cate_styles } from '../cate/cate.style.js';
 import { note_styles } from '../note/note.style.js';
 
 
-const Home = ({navigation}) => {
+const Home = ({ navigation }) => {
 
   const handleNoteNavigate = () => {
     navigation.navigate('Note')
@@ -24,14 +24,14 @@ const Home = ({navigation}) => {
     { catName: 'To-do-lists', id: '4' },
     { catName: 'Shopping lists', id: '5' }
   ]
-//
-//  const note = [
-//    { noteTitle: 'Team Meeting', description: 'Hello fdfasdf dfdsfdf fdfdsfdsfdfdf ...', id: '1' },
-//    { noteTitle: 'AAA', description: 'Hello fdfasdf dfdsfdf fdfdsfdsfdfdf ...', id: '2' },
-//    { noteTitle: 'Shopping list', description: 'Hello fdfasdf dfdsfdf fdfdsfdsfdfdf ...', id: '3'},
-//    { noteTitle: 'Assignment 1', description: 'Hello fdfasdf dfdsfdf fdfdsfdsfdfdf ...', id: '4',},
-//    { noteTitle: 'Notes', description: 'Hello fdfasdf dfdsfdf fdfdsfdsfdfdf ...', id: '5' },
-//  ]
+  //
+  //  const note = [
+  //    { noteTitle: 'Team Meeting', description: 'Hello fdfasdf dfdsfdf fdfdsfdsfdfdf ...', id: '1' },
+  //    { noteTitle: 'AAA', description: 'Hello fdfasdf dfdsfdf fdfdsfdsfdfdf ...', id: '2' },
+  //    { noteTitle: 'Shopping list', description: 'Hello fdfasdf dfdsfdf fdfdsfdsfdfdf ...', id: '3'},
+  //    { noteTitle: 'Assignment 1', description: 'Hello fdfasdf dfdsfdf fdfdsfdsfdfdf ...', id: '4',},
+  //    { noteTitle: 'Notes', description: 'Hello fdfasdf dfdsfdf fdfdsfdsfdfdf ...', id: '5' },
+  //  ]
   
   const DataDisplay = () => {
     const [data, setData] = useState([]);
@@ -40,11 +40,12 @@ const Home = ({navigation}) => {
       const loadData = async () => {
         try {
           const storedData = await AsyncStorage.getItem('submittedData');
-          if (storedData !== null) {
-            const parsedData = JSON.parse(storedData);
-            setData(parsedData);
-          }
-        } catch (error) {
+          //if (storedData !== null) {
+          //  const parsedData = JSON.parse(storedData);
+          //  setData(parsedData);
+          return storedData != null ? JSON.parse(storedData) : null;
+        }
+        catch (error) {
           console.error('Error loading data from AsyncStorage:', error);
         }
       };
@@ -99,12 +100,12 @@ const Home = ({navigation}) => {
           />
         </View>*/}
 
-        <View  style={note_styles.noteFlatlist}>
-          <FlatList 
-          numColumns={numofColumns}
-          data={DataDisplay}
-          renderItem={({ item }) =>
-            (<View style={ [note_styles.noteContainer , {backgroundColor: getRandomColorFromList()}] }>
+        <View style={note_styles.noteFlatlist}>
+          <FlatList
+            numColumns={numofColumns}
+            data={DataDisplay}
+            renderItem={({ item }) =>
+            (<View style={[note_styles.noteContainer, { backgroundColor: getRandomColorFromList() }]}>
               <Text style={note_styles.noteTitle}>
                 {item.title}
               </Text>
@@ -112,14 +113,14 @@ const Home = ({navigation}) => {
                 {item.detail}
               </Text>
             </View>)
-          }
+            }
           />
-        </View> 
+        </View>
       </View>
 
-      <FAB color='black' icon='plus' color='#fff' style={[{backgroundColor: 'black', borderRadius: 100},home_styles.button]} onPress={handleNoteNavigate}/>
+      <FAB color='black' icon='plus' color='#fff' style={[{ backgroundColor: 'black', borderRadius: 100 }, home_styles.button]} onPress={handleNoteNavigate} />
 
-    <StatusBar style="auto" />
+      <StatusBar style="auto" />
     </SafeAreaView>
   )
 }
