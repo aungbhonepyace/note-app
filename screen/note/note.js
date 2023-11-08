@@ -31,15 +31,12 @@ const Note = ({navigation}) => {
       detail: '',
     };
 
-    // Update the submitted data state with the new entry
     setSubmittedData((prevData) => [...prevData, newData]);
 
-    // Clear the input fields
     setSelectedValue('');
     setTitle('');
     setDetail('');
 
-    // Save the entire data array to AsyncStorage
     try {
       await AsyncStorage.setItem('submittedData', JSON.stringify(submittedData));
       navigation.navigate('Home');
